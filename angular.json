@@ -38,10 +38,10 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/boostrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": [
-              "node_modules/boostrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -116,5 +116,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
