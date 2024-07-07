@@ -1,0 +1,52 @@
+ .login-body {
+    width: 100%;
+    max-width: 50%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 15px;
+  }
+
+  .card-title {
+    color: #0d6efd;
+  }
+
+  .form-floating {
+    position: relative;
+  }
+
+  .form-floating .form-control {
+    padding-right: 2.5rem;
+  }
+
+  .form-floating i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0d6efd;
+  }
+
+
+  .form-check-label, .text-center a {
+    color: #0d6efd;
+  }
+
+  .form-check-label:hover, .text-center a:hover {
+    color: #0d6efd;
+  }
+
+  .login-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .login-body .col-md-6.bg-primary {
+    background: none;
+  }
+
+  .login-body .col-md-6 {
+    padding: 2rem;
+  }
+
+
