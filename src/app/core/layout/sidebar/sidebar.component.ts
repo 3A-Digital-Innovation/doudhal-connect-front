@@ -10,4 +10,24 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent {
 
+  menuItems = [
+    {
+      name: 'Eleves',
+      icon: 'fa fa-graduation-cap',
+      children: [
+        {
+          name: 'Listes des eleves',
+          link: 'students',
+        },
+        {
+          name: 'Ajouter un eleve',
+          link: '/students/new',
+        },
+        {
+          name: 'Inscription',
+          link: '/students/registration',
+        }
+      ]
+    },
+  ];
 }
