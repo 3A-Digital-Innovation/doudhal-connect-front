@@ -3,7 +3,11 @@ import { StudentsComponent } from './students.component';
 
 export const studentRoutes: Routes = [
   {
-    path: '',
+    path: 'students',
     loadComponent: () => import('./students.component').then(m => m.StudentsComponent)
+  },
+  {
+    path: 'details-etudiants',
+    loadComponent: () => import('./student-view/student-view.component').then(m => m.StudentViewComponent)
   }
 ];

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,36 +9,31 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  implements OnInit, OnDestroy {
 
-
-  constructor(private fb: FormBuilder) {
-  }
-  Toggledata = true;
-  CustomControler!: string | number;
-  form!: FormGroup
-
-
-  ngOnInit() {
-    this.initLoginFormGroup();
-  }
-
-  private initLoginFormGroup(){
-    this.form = this.fb.group({
-      email: new FormControl<string>('', [Validators.required, Validators.email]),
-      password: new FormControl<string>('', [Validators.required, Validators.minLength(6)])
-    });
-  }
+  public Toggledata = true;
+  public CustomControler!: string | number;
+  form = new UntypedFormGroup({
+    email: new UntypedFormControl('admin@dreamguys.in', [Validators.required]),
+    password: new UntypedFormControl('123456', [Validators.required]),
+  });
 
   get f() {
     return this.form.controls;
   }
-  submit() {
 
+  
+
+  ngOnInit() {
+
+  }
+
+  submit() {
   }
   ngOnDestroy() {
-
   }
-
+  iconLogle() {
+    this.Toggledata = !this.Toggledata;
+  }
 }
 
