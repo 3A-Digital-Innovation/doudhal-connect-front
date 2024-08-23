@@ -1,0 +1,126 @@
+.tr-bg-color{
+  background-color: #FAFAFA;
+}
+
+a.action::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 40px;
+  background-color: #FAFAFA;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+a.action:hover::before{
+  background-color: blue;
+}
+
+a.action:hover{
+  color: white;
+}
+
+a.action:focus {
+ border: none;
+}
+
+select{
+  width: 50px;
+}
+
+select:focus{
+  box-shadow: none;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-form-field .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  display: none;
+}
+
+::ng-deep .mat-mdc-form-field .mat-mdc-text-field-wrapper.mdc-text-field{
+  color: black;
+  border-radius: 10px;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+  color: black;
+} 
+
+::ng-deep .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+  color: black;
+}
+
+::ng-deep .mat-primary.mdc-menu-surface .mdc-list-item{
+  color: black;
+}
+::ng-deep .mat-primary.mdc-menu-surface{
+  background-color: white;
+}
+
+::ng-deep .mat-primary.mdc-menu-surface .mdc-list-item:nth-child(2n){
+  background-color: #FAFAFA;
+} 
+
+::ng-deep .mat-mdc-form-field .mat-mdc-text-field-wrapper.mdc-text-field{
+  color: black;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined {
+  --mdc-outlined-text-field-disabled-label-text-color: lightgray;
+    --mdc-outlined-text-field-disabled-outline-color: lightgray;
+  --mdc-outlined-text-field-label-text-size: 14px;
+  --mdc-outlined-text-field-caret-color: black;
+  --mdc-outlined-text-field-label-text-color: black;
+  --mdc-outlined-text-field-focus-label-text-color: black;
+  --mdc-outlined-text-field-input-text-color: black;
+  --mdc-outlined-text-field-focus-outline-color: black;
+  --mdc-outlined-text-field-hover-outline-color: black;
+  --mdc-outlined-text-field-outline-color: black;
+  --mdc-outlined-text-field-outline-width: 1px;
+  --mdc-outlined-text-field-focus-outline-width: 2px;
+  --mdc-outlined-text-field-container-shape: 4px;
+}
+
+::ng-deep .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow{
+  color: black;
+  padding-bottom: 5px;
+}
+
+::ng-deep .mat-mdc-select-value-text{
+  color: black;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 8px;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined{
+  height: 36px;
+}
+
+::ng-deep .mdc-floating-label.mat-mdc-floating-label {
+  padding-bottom: 20px;
+}
+
+::ng-deep .mat-mdc-select-value-text{
+  font-size: 14px;
+}
+
+::ng-deep .mat-mdc-form-field .mat-mdc-select.mat-mdc-select-disabled .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow {
+    color: lightgray;
+}
+
+::ng-deep .mat-mdc-select-arrow-wrapper{
+  padding-bottom: 5px;
+}
+
+::ng-deep .mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-focused {
+  font-size: 14px;
+}

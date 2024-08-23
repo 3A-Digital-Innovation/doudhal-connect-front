@@ -1,0 +1,137 @@
+<div class="card m-3 p-2">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-2">
+            <mat-form-field appearance="outline">
+                <mat-label>Classe</mat-label>
+                <mat-select [ngModel]="filtreClasse" (ngModelChange)="setClasse($event)">
+                  <mat-option class="bg-body-secondary"></mat-option>
+                  <mat-option *ngFor="let classe of classes" [value]="classe.valeur">{{classe.libelle}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-2">
+             <mat-form-field appearance="outline">
+                <mat-label>Option</mat-label>
+                <mat-select [disabled]="options.length == 0" [ngModel]="filtreOption" (ngModelChange)="setOption($event)">
+                  <mat-option class="bg-body-secondary"></mat-option>
+                  <mat-option *ngFor="let option of options" [value]="option.valeur">{{option.libelle}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-4">
+           <mat-form-field appearance="outline">
+              <mat-label>Chercher par Identifiant ou Nom ou Prénom ou Téléphone</mat-label>
+              <input matInput placeholder="Ex: DIALLO" [(ngModel)]="filterIdNomPrenomTel">
+            </mat-form-field>
+        </div>
+        <button type="button" class="btn btn-primary col-2 me-3" [disabled]="!filtreClasse && !filtreOption && !filterIdNomPrenomTel" (click)="filtrerTableau()">Chercher</button>
+    </div>
+</div>
+
+<div class="card m-3 p-2">
+  <div class="card-body">
+    <!-- Page Header -->
+    <div class="row">
+      <div class="col">
+        <h3 class="page-title fw-bold">{{ typeElement }}s</h3>
+      </div>
+      <div class="col-auto text-end float-end ms-auto download-grp">
+        <a
+          routerLink="'/students/students-add'"
+          class="btn btn-dark"
+          [ngbTooltip]="tooltipTitle"
+          placement="top"
+          ><i class="fas fa-plus"></i
+        ></a>
+      </div>
+    </div>
+    <!-- /Page Header -->
+    <div class="mb-2">
+        <label class="d-flex align-items-center">
+            Afficher
+            <select [ngModel]="currentPageSize" (ngModelChange)="changePageSize($event)"
+                class="form-control mx-2 p-1 text-center">
+                <option *ngFor="let pageSize of pageSizes" [value]="pageSize">{{pageSize}}</option>
+            </select>
+            {{typeElement}}
+        </label>
+    </div>
+    <div class="row">
+      <table *ngIf="clients.at(0)" class="table">
+        <thead>
+          <tr>
+            <th *ngFor="let titre of titres; trackBy: trackByTitreFn">
+              {{ titre }}
+            </th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="h-25 overflow-scroll">
+          <tr *ngFor="let client of filteredClients; trackBy: ClientByIdentifiant; let isPaire = odd">
+            <td class="pt-3" [ngClass]="{'tr-bg-color': isPaire}">
+              {{ client.identifiant }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.nom }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.prenom }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.classe.libelle }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.option?.libelle }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.dateInscription }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.numeroTelephone }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}" class="pt-3">
+              {{ client.adresse }}
+            </td>
+            <td [ngClass]="{'tr-bg-color': isPaire}">
+              <a
+                routerLink="'/students/students-add'"
+                class="btn position-relative z-0 action"
+                [ngbTooltip]="tooltipAffichage"
+                placement="top"
+                ><i class="far fa-eye"></i></a>
+              <a
+                routerLink="'/students/students-add'"
+                class="btn position-relative z-0 action"
+                [ngbTooltip]="tooltipModif"
+                placement="top"
+                ><i class="far fa-edit"></i>
+              </a>
+              <a
+                routerLink="'/students/students-add'"
+                class="btn position-relative z-0 action"
+                [ngbTooltip]="tooltipTrash"
+                placement="top"
+                ><i class="far fa-trash-can"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row justify-content-between pe-0">
+        <div class="col-3 d-flex align-items-center">
+            <span>Page {{currentPageNumber}} sur {{nombrePage}} </span>
+        </div>
+        <div class="col-3 d-flex align-items-center justify-content-end p-0">
+            <div class="navigation">
+                <button type="button" class="btn border-0 position-relative" [disabled]="currentPageNumber == 1" (click)="getFirstPage()"><i class="fa-solid fa-backward-step"></i></button>
+                <button type="button" class="btn border-0 position-relative" [disabled]="currentPageNumber == 1" (click)="getPrePage()"> <i class="fa-solid fa-chevron-left"></i></button>
+                <span class="p-2">Page {{currentPageNumber}}</span>
+                <button type="button" class="btn border-0 position-relative" [disabled]="this.currentPageNumber == this.nombrePage" (click)="getNextPage()"><i class="fa-solid fa-chevron-right"></i></button>
+                <button type="button" class="btn border-0 position-relative" [disabled]="currentPageNumber == nombrePage" (click)="getLastPage()"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
