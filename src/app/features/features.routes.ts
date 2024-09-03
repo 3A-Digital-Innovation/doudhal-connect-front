@@ -1,9 +1,20 @@
-import { Route } from "@angular/router";
-import { LoginComponent } from "./login/login.component";
+import { Routes } from '@angular/router';
 
-export const FEATURES_ROUTES: Route[] = [
-    {
-        path: 'login',
-        loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
-      },
+export const FEATURES_ROUTES: Routes = [
+  {
+    path: 'etudiants', 
+    loadChildren: () => import('./students/students.routes').then(mod => mod.STUDENTES_ROUTES)
+  },
+/*
+  {
+    path: '',
+    redirectTo: 'connexion',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'connexion'
+  }, 
+
+  */
 ];
